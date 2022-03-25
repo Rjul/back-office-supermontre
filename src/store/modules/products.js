@@ -50,6 +50,7 @@ const mutations = {
         if (state.idViewProduct) [
             this.commit('products/setProduct', state.idViewProduct)
         ]
+        this.commit('products/setDataMounted', true)
     },
 
     setProduct(state, idToView) {

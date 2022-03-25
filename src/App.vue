@@ -14,9 +14,6 @@
         <div class="btnNav">S-Montre</div>
       </a>
     </nav>
-    <button id="btnMenu">
-      <img class="btnMenu" src="..\public\assets\icon-menu.png" alt="" />
-    </button>
   </header>
   <div id="container" class="page-table-container">
     <router-view />

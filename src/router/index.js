@@ -21,12 +21,31 @@ const routes = [
   // Product
   {
     path: '/products',
-    name: 'Products'
-
+    name: 'Products',
+    component: () => import('../views/Products.vue')
   },
   {
     path: '/product/:id',
-    name: 'ThisProduct'
+    name: 'ThisProduct',
+    component: () => import('../views/Product.vue')
+  },
+  {
+    path: '/product/create',
+    name: 'CreateProduct',
+    props: { product:{
+      "id": null,
+      "title": "",
+      "description": "",
+      "postDescription": "",
+      "imageUrl": "",
+      "author": null,
+      "created_at": "",
+      "updated_at": "",
+      "price": 0,
+      "quatity": 0,
+      "tags": null
+    } },
+    component: () => import('../components/command/ItemProduct.vue')
   },
   // Client
   {

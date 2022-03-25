@@ -1,44 +1,32 @@
 <template>
-<div class="page-table-container">
-    <h2 class="titlePage">Liste Produits</h2>
-    <router-link :to="{ name: 'CreateProduct' }">CREATE</router-link>
-    <table>
-        <thead>
-            <tr>
-                <th>Ref :</th>
-                <th>Nom</th>
-                <th class="no-tab">Quantité</th>
-                <th class="no-tab">Prix</th>
-            </tr>
-        </thead>
-        <tbody  :v-if="products != undefined || products != null">
-            <ItemListProduct
-            v-for="product in products"
-            :key="product.id"
-            :product="product" 
-            />
-        </tbody>
-    </table>
+<div v-if="product" class="page-table-container">
+    <h2 class="titlePage">Produit</h2>
+        <ItemProduct
+        :product="product"
+        />
 </div>
 </template>
 
 <script>
-import ItemListProduct from "../components/command/ItemListProduct.vue"
+import ItemProduct from "../components/command/ItemProduct.vue"
 import { useStore } from "vuex";
+import { useRoute } from "vue-router";
 import { computed } from "vue";
 export default {
     setup() {
         const store = useStore();
-        const products = computed(() => store.state.products.productsStored);
+        const route = useRoute();
+        store.dispatch("products/defineIdToView", route.params.id);
+        const product = computed(() => store.state.products.product);
         const ready = computed(() => store.state.products.dataMounted);
         return {
-            products,
+            product,
             ready
         };
     },
     name: 'Products',
     components: {
-        ItemListProduct,
+        ItemProduct,
     },
 }
 </script>
