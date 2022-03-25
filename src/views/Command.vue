@@ -2,7 +2,50 @@
 <div class="page-table-container">
     <h2 class="titlePage">Liste Commandes</h2>
     <div v-if="cart != [] && ready ">
-            {{cart.user.lastName}}
+        <article class="colone-2">
+            <section class="item-card">
+                <h3>Client</h3>
+                <p>{{cart.user.lastName}} {{cart.user.firstName}}</p>
+                <p>{{cart.user.adress}} {{cart.user.zipcode}} {{cart.user.city}}</p>
+            </section>
+            <section class="item-card">
+                <h3>livraison Type</h3>
+                <p>{{cart.delivery.type}}</p>
+            </section>
+        </article>
+        <article class="colone-2">
+            <section class="item-card">
+                <h3>Status</h3>
+                <p>status: {{cart.status}}</p>
+                <p>Date: {{cart.createAt}}</p>
+            </section>
+            <section class="item-card">
+                <h3>Information Commande</h3>
+                <p>Prix: {{cart.priceTotal}}</p>
+                <p>Quatités: {{cart.quatityTotal}}</p>
+            </section>
+        </article>
+        <article class="colone-1">
+            <section class="item-card">
+                <h3>Produits</h3>
+                <thead>
+                    <tr>
+                        <th>REF</th>
+                        <th>NOM</th>
+                        <th>Prix</th>
+                        <th>Quantité</th>
+                    </tr>
+                </thead>
+                <tbody v-for="product in cart.products" :key="product.id" id="fakerOne">
+                    <tr>
+                        <td>{{ product.id }}</td>
+                        <td class="no-tab">{{ product.name }}</td>
+                        <td class="no-tab">{{ product.price }}</td>
+                        <td>{{ product.quantity }}</td>
+                    </tr>
+                </tbody>
+            </section>
+        </article>
     </div>
 </div>
 </template>
