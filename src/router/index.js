@@ -8,8 +8,9 @@ const routes = [
   },
   // Commande
   {
-    path: '/commands',
-    name: 'Commands',
+    path: '/commandes',
+    name: 'Command',
+    component: () => import('../views/Command.vue')
 
   },
   {
