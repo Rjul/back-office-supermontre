@@ -30,6 +30,7 @@ export default {
   setup() {
     const store = useStore();
     store.dispatch("carts/getAllCarts");
+    store.dispatch("products/getAllProducts");
   },
   name: "App",
   components: {},
