@@ -1,18 +1,21 @@
 
 export default {
-    async getProducts() {
-        function getDataProducts() {
-            return fetch("http://api.hummel-dev.fr/api/products", {
+    get(carts) {
+        function getCarts() {
+            return fetch("http://localhost:8080/fake-data/carts.json", {
                 method: "GET",
-            })
+                mode: 'cors'
+            }, true)
                 .then(function (response) {
-                    console.log("reponse");
+                    console.log(response);
                     return response.json();
                 })
                 .catch(function (response) {
                     console.error(response);
                 });
         }
-        getDataProducts().then((data) => { return data });
+
+        getCarts().then((cartsRow) => carts(cartsRow));
+
     }
 }

@@ -10,12 +10,13 @@ const routes = [
   {
     path: '/commandes',
     name: 'Command',
-    component: () => import('../views/Command.vue')
+    component: () => import('../views/Commands.vue')
 
   },
   {
     path: '/command/:id',
-    name: 'ThisCommand'
+    name: 'ThisCommand',
+    component: () => import('../views/Command.vue')
   },
   // Product
   {

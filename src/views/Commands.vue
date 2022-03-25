@@ -1,48 +1,49 @@
 <template>
 <div class="page-table-container">
     <h2 class="titlePage">Liste Commandes</h2>
-    <div v-if="cart != [] && ready ">
-            {{cart.user.lastName}}
-    </div>
+    <table>
+        <thead>
+            <tr>
+                <th colspan="3">IDENTIFICATION</th>
+                <th colspan="2" class="no-tab">CLIENT</th>
+            </tr>
+            <tr>
+                <th>Ref :</th>
+                <th>Date</th>
+                <th class="no-tab">Nb de produit</th>
+                <th class="no-tab">Nom</th>
+                <th>Type livraison</th>
+            </tr>
+        </thead>
+        <tbody :v-if="ready">
+            <ItemListCommand
+            v-for="cart in carts"
+            :key="cart.id"
+            :cart="cart" 
+            />
+        </tbody>
+    </table>
 </div>
 </template>
 
 <script>
+import ItemListCommand from "../components/command/ItemListCommand.vue"
 import { useStore } from "vuex";
-import { useRoute } from "vue-router";
 import { computed } from "vue";
 export default {
     setup() {
         const store = useStore();
-        const route = useRoute();
-        console.log(route.params.id);
-        const cart = computed(() => store.state.carts.cart);
+        const carts = computed(() => store.state.carts.items);
         const ready = computed(() => store.state.carts.ready);
-        if (ready.value == true){
-            store.dispatch("carts/getCartAction", route.params.id);
-        }
         return {
-            cart,
-            ready,
-            route,
-            store
+            carts,
+            ready
         };
     },
     name: 'Command',
-    watch: {
-        ready: {
-            // Watch change for product and verify the newValue is available
-            handler(newValue, oldValue) {
-                console.log(newValue, " ", oldValue);
-                if ((newValue == true)) {
-                console.log("here in if controle state for data");
-                this.store.dispatch("carts/getCartAction", this.route.params.id);
-                }
-            },
-        immediate: true,
-        },
+    components: {
+        ItemListCommand,
     },
-
 }
 </script>
 

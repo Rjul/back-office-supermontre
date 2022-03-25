@@ -1,12 +1,12 @@
 import { createStore, createLogger } from 'vuex'
-import cart from './modules/cart'
+import carts from './modules/carts'
 import products from './modules/products'
 
 const debug = process.env.NODE_ENV !== 'production'
 
 export default createStore({
     modules: {
-        cart,
+        carts: carts,
         products
     },
     strict: debug,
