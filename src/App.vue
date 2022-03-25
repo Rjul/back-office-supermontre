@@ -1,7 +1,7 @@
 <template>
   <header id="menu">
     <nav>
-      <router-link :to="{ name: 'Commands' }">
+      <router-link :to="{ name: 'Command' }">
         <div class="btnNav">Commandes</div></router-link
       >
       <router-link :to="{ name: 'Products' }">
@@ -18,6 +18,10 @@
       <img class="btnMenu" src="..\public\assets\icon-menu.png" alt="" />
     </button>
   </header>
+  <div class="page-table-container">
+    <router-view />
+  </div>
+
 </template>
 
 <script>
@@ -28,4 +32,5 @@ export default {
 </script>
 
 <style>
+
 </style>
