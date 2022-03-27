@@ -17,7 +17,8 @@ const users = {
                 commit('setUsers', users)
             })
         },
-        getCartAction({ commit }, id) {
+        getUserAction({ commit }, id) {
+            this.commit('carts/cartsByUserId',id)
             commit('setUser', id)
         }
     },
