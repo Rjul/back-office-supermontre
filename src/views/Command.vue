@@ -1,6 +1,6 @@
 <template>
 <div class="page-table-container">
-    <h2 class="titlePage">Liste Commandes</h2>
+    <h2 class="titlePage">Commande ref: {{ cart.id }}</h2>
     <div v-if="cart != [] && ready ">
         <article class="colone-2">
             <section class="item-card">
