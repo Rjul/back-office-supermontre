@@ -27,23 +27,25 @@
         </article>
         <article class="colone-1">
             <section class="item-card">
-                <h3>Produits</h3>
-                <thead>
-                    <tr>
-                        <th>REF</th>
-                        <th>NOM</th>
-                        <th>Prix</th>
-                        <th>Quantité</th>
-                    </tr>
-                </thead>
-                <tbody v-for="product in cart.products" :key="product.id" id="fakerOne">
-                    <tr>
-                        <td>{{ product.id }}</td>
-                        <td class="no-tab">{{ product.name }}</td>
-                        <td class="no-tab">{{ product.price }}</td>
-                        <td>{{ product.quantity }}</td>
-                    </tr>
-                </tbody>
+                <h3 class="titlePage">Produits</h3>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>REF</th>
+                            <th>NOM</th>
+                            <th>Prix</th>
+                            <th>Quantité</th>
+                        </tr>
+                    </thead>
+                    <tbody v-for="product in cart.products" :key="product.id" id="fakerOne">
+                        <tr>
+                            <td>{{ product.id }}</td>
+                            <td class="no-tab">{{ product.name }}</td>
+                            <td class="no-tab">{{ product.price }}</td>
+                            <td>{{ product.quantity }}</td>
+                        </tr>
+                    </tbody>
+                </table>
             </section>
         </article>
     </div>
@@ -89,12 +91,22 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
 .page-table-container{
     width: 100%;
 }
 .titlePage{
     text-align: center;
+}
+.item-card{
+    display: block;
+    border: 2px grey solid;
+    width: 100%;
+}
+.colone-2{
+    margin: 10px 0 10px;
+    display: flex;
+    
 }
 table {
     overflow-x: hidden;
