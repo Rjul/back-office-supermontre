@@ -50,8 +50,8 @@ const routes = [
   // Client
   {
     path: '/clients',
-    name: 'Clients'
-
+    name: 'Clients',
+    component: () => import('../views/Clients.vue')
   },
   {
     path: '/client/:id',

@@ -28,6 +28,7 @@ export default {
     const store = useStore();
     store.dispatch("carts/getAllCarts");
     store.dispatch("products/getAllProducts");
+    store.dispatch("users/getAllUsers");
   },
   name: "App",
   components: {},
