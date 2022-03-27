@@ -45,7 +45,7 @@ const routes = [
       "quatity": 0,
       "tags": null
     } },
-    component: () => import('../components/command/ItemProduct.vue')
+    component: () => import('../views/ProductCreate.vue')
   },
   // Client
   {

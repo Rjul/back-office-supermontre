@@ -9,25 +9,15 @@
 
 <script>
 import ItemProduct from "../components/products/ItemProduct.vue"
-import { useStore } from "vuex";
-import { useRoute } from "vue-router";
-import { computed } from "vue";
+
 export default {
-    setup() {
-        const store = useStore();
-        const route = useRoute();
-        store.dispatch("products/defineIdToView", route.params.id);
-        const product = computed(() => store.state.products.product);
-        const ready = computed(() => store.state.products.dataMounted);
-        return {
-            product,
-            ready
-        };
-    },
     name: 'Products',
     components: {
         ItemProduct,
     },
+    props:{
+        product: Object,
+    }
 }
 </script>
 

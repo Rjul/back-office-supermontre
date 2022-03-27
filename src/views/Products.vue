@@ -23,7 +23,7 @@
 </template>
 
 <script>
-import ItemListProduct from "../components/command/ItemListProduct.vue"
+import ItemListProduct from "../components/products/ItemListProduct.vue"
 import { useStore } from "vuex";
 import { computed } from "vue";
 export default {
